@@ -1,12 +1,15 @@
+import math
+
 def prob() :
-    help()
-    a,b,c,d = input("enter the payoffs:")
-    p(a,b,c,d)
+    payoffs = input("enter the payoffs:")
+    methods = {'p2' : p2, 'p3' : p3}
+    size = math.sqrt(len(payoffs))
 
-def help() :
-    print 'use p(a, b, c, d)\n'
+    assert size == 2 or size == 3, "Can't handle size %s problems" % size
 
-def p(a, b, c, d):
+    methods['p%s' % int(size)](*payoffs)
+
+def p2(a, b, c, d):
     e = a - c
     f = d - b
     g = f + e
@@ -42,10 +45,6 @@ def solveHalf(a,b,c,d,e,f) :
     p = a - c - d + f
     q = b - e - c + f
     const = c - f
-
-    print '{}p'.format(p)
-    print '{}q'.format(q)
-    print '{} const'.format(const)
 
     return p, q, const
 

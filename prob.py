@@ -5,11 +5,6 @@ def prob() :
 
 def help() :
     print 'use p(a, b, c, d)\n'
-    print 'where, in a 2 player game(x,y):\n'
-    print 'a := payoff for x for w1 if y plays w1\n'
-    print 'b := payoff for x for w1 if y plays w2\n'
-    print 'c := payoff for x for w2 if y plays w1\n'
-    print 'd := payoff for x for w2 if y plays w2\n'
 
 def p(a, b, c, d):
     e = a - c
@@ -20,8 +15,28 @@ def p(a, b, c, d):
     print 'p = {} / {}'.format(f/gfcd, g/gfcd)
 
 def p3(a,b,c,d,e,f,g,h,i) :
-    p1,q1,const1 = solveHalf(a,b,c,d,e,f)
-    p2,q2,const2 = solveHalf(a,b,c,g,h,i)
+    p1,q1,c1 = solveHalf(a,b,c,d,e,f)
+    p2,q2,c2 = solveHalf(a,b,c,g,h,i)
+
+    xp = -c1 * q2 + c2 * q1
+    yp = -p2 * q1 + p1 * q2
+
+    xq = -c1 * yp - p1 * xp
+    yq = q1 * yp
+
+    xr = yp * yq - xp * yq - xq * yp
+    yr = yp * yq
+
+    prettyPrint('p', xp, yp)
+    prettyPrint('q', xq, yq)
+    prettyPrint('r', xr, yr)
+
+def prettyPrint(v, vc, vp) :
+    pgcd = gcd(vc, vp)
+    x = vc / pgcd
+    y = vp / pgcd
+
+    print '{} = {} / {}'.format(v, x, y)
 
 def solveHalf(a,b,c,d,e,f) :
     p = a - c - d + f

@@ -18,7 +18,7 @@ For example given the matrix:
 
 A (rows)/B(columns) | Head | Tail
 ---|---|---
-Head (*p*) | a1,b1 | a2,b3
-Tail (*1-p*)| a3,b2 | a4,b4
+Head ( *p* ) | a1,b1 | a2,b3
+Tail ( *1-p* )| a3,b2 | a4,b4
 
 You would do: a1,a2,a3,a4 to calculate P

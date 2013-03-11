@@ -7,6 +7,11 @@ prob.py
 ----------
 Computes Nash equilibria for 2x2 and 3x3 games
 
+Usage:
+> python
+> import prob as p
+> p.prob() # follow prompt
+
 Explanation of the algorithm is:
 [http://en.wikipedia.org/wiki/Nash_equilibrium#Computing_Nash_equilibria]
 
@@ -22,3 +27,9 @@ Head ( *p* ) | a1,b1 | a2,b3
 Tail ( *1-p* )| a3,b2 | a4,b4
 
 You would do: a1,a2,a3,a4 to calculate P
+
+bayesian.py
+----------
+
+bayesian equilibrium
+
